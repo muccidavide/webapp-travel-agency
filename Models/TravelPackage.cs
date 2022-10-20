@@ -1,6 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using static System.Formats.Asn1.AsnWriter;
 
+
+
+
+/// <summary>
+/// TravelPackage rappresenta il modello principale al quale sono collegate tutte le relazioni:
+/// - Category(1 a molti): rappresenta la categoria del viaggio(coppia, famiglia, etc)
+/// - Transport(1 a molti): rappresenta il mezzo di trasporto
+/// - Destination(1 a molti): indica  la destinazione del viaggio
+/// - Tags(molti a molti): utilizzati per taggare i vari pacchetti
+/// 
+/// NON E' presente alcuna validazione a livello di db ad eccenzione di un controllo sull'unicità del nome delle categorie, traporti, destinazioni;
+/// </summary>
 namespace webapp_travel_agency.Models
 {
     public class TravelPackage

@@ -1,9 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using webapp_travel_agency.Models;
 
 namespace webapp_travel_agency.Data
 {
-    public class TravelContext : DbContext
+
+    public class TravelContext : IdentityDbContext<IdentityUser>
     {
         public TravelContext()
         {

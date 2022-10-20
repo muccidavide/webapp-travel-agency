@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
@@ -8,7 +9,8 @@ using webapp_travel_agency.Models;
 
 namespace webapp_travel_agency.Controllers.Admin
 {
-   
+
+    [Authorize]
     public class TravelPackageController : Controller
     {
         TravelContext _ctx;
