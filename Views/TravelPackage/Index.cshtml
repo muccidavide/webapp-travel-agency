@@ -1,0 +1,29 @@
+﻿@model List<TravelPackage>;
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Destinazione</th>
+            <th scope="col">Data di partenza</th>
+            <th scope="col">Data di ritorno</th>
+            <th scope="col">Prezzo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(TravelPackage travel in Model){
+            <tr>
+                <th scope="row">@travel.Id</th>
+                <td>@travel.Name</td>
+                <td>@travel.Destination</td>
+                <td>@travel.DepartureDate</td>
+                <td>@travel.ReturnDate</td>
+                <td>@travel.Price €</td>
+            </tr>
+        }
+        
+       
+    </tbody>
+</table>

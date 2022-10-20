@@ -9,17 +9,6 @@ namespace webapp_travel_agency.Models
         {
         }
 
-        public TravelPackage(string name, string description, string destination, DateTime departureDate, DateTime returnDate, decimal price, bool isAvailable)
-        {
-            Name = name;
-            Description = description;
-            Destination = destination;
-            DepartureDate = departureDate;
-            ReturnDate = returnDate;
-            Price = price;
-            IsAvailable = isAvailable;
-        }
-
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }

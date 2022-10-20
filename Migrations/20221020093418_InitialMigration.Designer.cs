@@ -24,7 +24,7 @@ namespace webapp_travel_agency.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("webapp_travel_agency.Models.TravelPackage", b =>
+            modelBuilder.Entity("webapp_travel_agency.Models.Travel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
