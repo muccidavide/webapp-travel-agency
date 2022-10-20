@@ -1,12 +1,16 @@
-﻿@{
+﻿@model TravelSupportModel;
+@{
     DateTime today = DateTime.Now;
     var startingDay = today.ToString("yyyy-MM-dd");
+    var departureDay = Model.TravelPackage.DepartureDate;
+    var returnDay = Model.TravelPackage.ReturnDate;
+    var departureDayFormatted = String.Format("{0:s}", departureDay);
+    var returnDayFormatted = String.Format("{0:s}", returnDay);// "2008-03-09T16:05:07"
 }
 
-@model TravelSupportModel;
 
 <div class="container">
-    <form asp-controller="TravelPackage" asp-action="Create" method="post">
+    <form asp-controller="TravelPackage" asp-action="Update" method="post">
         @Html.AntiForgeryToken()
         <div class="mb-3">
             <strong>Nome:</strong>
@@ -26,12 +30,12 @@
         </div>
         <div class="mb-3">
             <strong>Data di partenza:</strong>
-            <input type="datetime-local" min="@startingDay" value="@startingDay" asp-for="TravelPackage.DepartureDate" class="d-block w-100" />
+            <input type="datetime-local" min="@startingDay" value="@departureDayFormatted" asp-for="TravelPackage.DepartureDate" class="d-block w-100" />
             <span asp-validation-for="TravelPackage.DepartureDate" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <strong>Data di ritorno:</strong>
-            <input type="datetime-local" asp-for="TravelPackage.ReturnDate" min="@startingDay" value="@startingDay" class="d-block w-100" />
+            <input type="datetime-local" asp-for="TravelPackage.ReturnDate" min="@startingDay" value="@returnDayFormatted" class="d-block w-100" />
             <span asp-validation-for="TravelPackage.ReturnDate" class="text-danger"></span>
         </div>
         <div class="mb-3">
@@ -47,11 +51,11 @@
                 {
                     @if (Model.TravelPackage.CategoryId == category.Id)
                     {
-                        <option selected value="@category.Id">@category.Name</option>
+                                <option selected value="@category.Id">@category.Name</option>
                     }
                     else
                     {
-                        <option value="@category.Id">@category.Name</option>
+                                <option value="@category.Id">@category.Name</option>
                     }
                 }
             </select>
@@ -64,11 +68,11 @@
                 {
                     @if (Model.TravelPackage.TransportId == transport.Id)
                     {
-                        <option selected value="@transport.Id">@transport.Name</option>
+                                <option selected value="@transport.Id">@transport.Name</option>
                     }
                     else
                     {
-                        <option value="@transport.Id">@transport.Name</option>
+                                <option value="@transport.Id">@transport.Name</option>
                     }
                 }
             </select>
@@ -81,11 +85,11 @@
                 {
                     @if (Model.TravelPackage.DestinationId == destination.Id)
                     {
-                        <option selected value="@destination.Id">@destination.Name</option>
+                                <option selected value="@destination.Id">@destination.Name</option>
                     }
                     else
                     {
-                        <option value="@destination.Id">@destination.Name</option>
+                                <option value="@destination.Id">@destination.Name</option>
                     }
                 }
             </select>
@@ -101,11 +105,11 @@
                 {
                     @if (Model.TravelPackage.Tags != null && Model.TravelPackage.Tags.Contains(ingredient))
                     {
-                        <option selected value="@ingredient.Id">@ingredient.Name</option>
+                                <option selected value="@ingredient.Id">@ingredient.Name</option>
                     }
                     else
                     {
-                        <option value="@ingredient.Id">@ingredient.Name</option>
+                                <option value="@ingredient.Id">@ingredient.Name</option>
                     }
                 }
             </select>
