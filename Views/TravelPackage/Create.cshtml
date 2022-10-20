@@ -1,0 +1,12 @@
+﻿@model TravelSupportModel;
+
+<div class="container">
+    <form asp-controller="TravelPackage" asp-action="Create" method="post">
+        @Html.AntiForgeryToken()
+        <div class="mb-3">
+            <strong>Nome:</strong>
+            <input asp-for="TravelPackage.Name" class="d-block w-100" />
+            <span asp-validation-for="TravelPackage.Name" class="text-danger"></span>
+        </div>
+    </form>
+</div>

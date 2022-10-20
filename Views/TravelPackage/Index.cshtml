@@ -1,5 +1,9 @@
 ﻿@model List<TravelPackage>;
 
+<div class="text-center mb-3">
+    <h2 class="fw-bold">Travels:</h2>
+    <a class="btn add-btn " asp-area="" asp-controller="TravelPackage" asp-action="Create">Aggiungi Pizza</a>
+</div>
 
 <table class="table">
     <thead>
@@ -13,17 +17,20 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(TravelPackage travel in Model){
+        @foreach (TravelPackage travel in Model)
+        {
             <tr>
+               
                 <th scope="row">@travel.Id</th>
-                <td>@travel.Name</td>
+
+                <td>  <a href="@Url.Action("Details","TravelPackage",new {id = travel.Id})">@travel.Name  </a></td>
+               
                 <td>@travel.Destination</td>
                 <td>@travel.DepartureDate</td>
                 <td>@travel.ReturnDate</td>
                 <td>@travel.Price €</td>
             </tr>
         }
-        
-       
+
     </tbody>
 </table>
