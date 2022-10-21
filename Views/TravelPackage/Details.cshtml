@@ -1,14 +1,20 @@
 ﻿@model TravelPackage;
 
-<div class="card" style="width: 18rem;">
-    <img src="@Model.CoverImage" class="card-img-top" alt="Image of @Model.Name">
-    <div class="card-body">
-        <h2>@Model.Name</h2>
-        <span class="card-text d-block">@Model.Description</span>
-        <span class="card-text d-block">@Model.Price</span>
+<div class="m-auto text-center my-3">
+    <h2>@Model.Name</h2>
+    <div class="card d-flex justify-content-between ">
+        <div class="card-img">
+            <img src="@Model.CoverImage" class="card-img-top" alt="Image of @Model.Name">
+        </div>
+        
+        <div class="card-body">
+            <h2>@Model.Name</h2>
+            <span class="card-text d-block">@Model.Description</span>
+            <span class="card-text d-block">@Model.Price</span>
+        </div>
     </div>
-
 </div>
+<div><h2>Messaggi:</h2></div>
 <table class="table">
     <thead>
         <tr>

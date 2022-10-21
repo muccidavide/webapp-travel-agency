@@ -6,6 +6,10 @@
 @model TravelSupportModel;
 
 <div class="container">
+    <div class="text-center">
+        <h2><Crea un nuovo pacchetto</h2>
+    </div>
+   
     <form asp-controller="TravelPackage" asp-action="Create" method="post">
         @Html.AntiForgeryToken()
         <div class="mb-3">

@@ -1,33 +1,34 @@
 ﻿@model int;
 
-<div class="js_title m-auto">
+<div class="js_title m-auto text-center my-3">
   
 </div>
 
-<div class="container js_travel_grid ">
+<div class="container js_travel_grid mb-3">
     
 </div>
 <div class="js_message-box">
+    <div class="text-center"><h2>Chiedi informazioni:</h2></div>
     <form onsubmit="sendMessage(event)">
 
         <div class="mb-3">
             <strong>Titolo:</strong>
-            <input id="form-title" type="text" class="d-block w-100" required />
+            <input id="form-title" type="text" class="d-block form-control w-100" required />
 
         </div>
         <div class="mb-3">
             <strong>Email:</strong>
-            <input id="form-email" type="email" class="d-block w-100" required />
+            <input id="form-email" type="email" class="d-block form-control w-100" required />
 
         </div>
         <div class="mb-3">
             <strong>Nome Completo:</strong>
-            <input id="form-fullName" type="text" class="d-block w-100" required />
+            <input id="form-fullName" type="text" class="d-block form-control w-100" required />
 
         </div>
         <div class="mb-3">
             <strong>Messaggio:</strong>
-            <textarea rows="5" id="form-body" type="text" class="d-block w-100" required> </textarea>
+            <textarea rows="5" id="form-body" type="text" class="d-block form-control w-100" required> </textarea>
 
         </div>
 
