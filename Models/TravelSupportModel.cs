@@ -11,6 +11,7 @@ namespace webapp_travel_agency.Models
             Transports = new List<Transport>();
             Categories = new List<Category>();
             Tags = new List<Tag>();
+            Messages = new List<Message>();
         }
 
         public TravelPackage TravelPackage { get; set; }
@@ -19,5 +20,6 @@ namespace webapp_travel_agency.Models
         public List<Category> Categories { get; set; }
         public List<Tag> Tags { get; set; }
         public List<int> SelectedTags { get; set; }
+        public List<Message> Messages { get; set; }
     }
 }

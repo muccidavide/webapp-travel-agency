@@ -14,34 +14,34 @@
         @Html.AntiForgeryToken()
         <div class="mb-3">
             <strong>Nome:</strong>
-            <input asp-for="TravelPackage.Name" class="d-block w-100" />
+            <input asp-for="TravelPackage.Name" class="d-block form-control w-100" />
             <span asp-validation-for="TravelPackage.Name" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <strong>Immagine:</strong>
-            <input asp-for="TravelPackage.CoverImage" class="d-block w-100" />
+            <input asp-for="TravelPackage.CoverImage" class="d-block form-control w-100" />
             <span asp-validation-for="TravelPackage.CoverImage" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <strong>Descrizione:</strong>
 
-            <textarea asp-for="TravelPackage.Description" class="d-block w-100"></textarea>
+            <textarea rows="8" asp-for="TravelPackage.Description" class="d-block form-control w-100"></textarea>
             <span asp-validation-for="TravelPackage.Description" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <strong>Data di partenza:</strong>
-            <input type="datetime-local" min="@startingDay" value="@departureDayFormatted" asp-for="TravelPackage.DepartureDate" class="d-block w-100" />
+            <input type="datetime-local" min="@startingDay" value="@departureDayFormatted" asp-for="TravelPackage.DepartureDate" class="d-block form-control w-100" />
             <span asp-validation-for="TravelPackage.DepartureDate" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <strong>Data di ritorno:</strong>
-            <input type="datetime-local" asp-for="TravelPackage.ReturnDate" min="@startingDay" value="@returnDayFormatted" class="d-block w-100" />
+            <input type="datetime-local" asp-for="TravelPackage.ReturnDate" min="@startingDay" value="@returnDayFormatted" class="d-block form-control w-100" />
             <span asp-validation-for="TravelPackage.ReturnDate" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <strong>Prezzo:</strong>
             <span class="input-group-text">€</span>
-            <input asp-for="TravelPackage.Price" class="d-block w-100" />
+            <input asp-for="TravelPackage.Price" class="d-block form-control w-100" />
             <span asp-validation-for="TravelPackage.Price" class="text-danger"></span>
         </div>
         <div class="mb-3">

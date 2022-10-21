@@ -44,7 +44,8 @@ namespace webapp_travel_agency.Controllers.Admin
 
         public IActionResult Details(int id)
         {
-            TravelPackage travel = _ctx.TravelPackages.Where(t=> t.Id == id).FirstOrDefault();
+            TravelPackage travel = _ctx.TravelPackages.Where(t=> t.Id == id).Include("Messages").FirstOrDefault();
+
             
             return View(travel);
         }

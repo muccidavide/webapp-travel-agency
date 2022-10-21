@@ -40,8 +40,8 @@ namespace webapp_travel_agency.Models
         public int? CategoryId { get; set; }
         public Category? Category { get; set; }
 
-
         public List<Tag>? Tags { get; set; }
+        public List<Message>? Messages { get; set; }
 
     }
 }

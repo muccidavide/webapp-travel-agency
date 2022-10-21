@@ -22,6 +22,7 @@ namespace webapp_travel_agency.Data
         public DbSet<Destination> Destinations { get; set; }
 
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

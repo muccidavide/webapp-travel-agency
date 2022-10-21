@@ -1,16 +1,46 @@
 ﻿@model int;
 
-<div class="js_title">
+<div class="js_title m-auto">
   
 </div>
 
 <div class="container js_travel_grid ">
     
 </div>
+<div class="js_message-box">
+    <form onsubmit="sendMessage(event)">
+
+        <div class="mb-3">
+            <strong>Titolo:</strong>
+            <input id="form-title" type="text" class="d-block w-100" required />
+
+        </div>
+        <div class="mb-3">
+            <strong>Email:</strong>
+            <input id="form-email" type="email" class="d-block w-100" required />
+
+        </div>
+        <div class="mb-3">
+            <strong>Nome Completo:</strong>
+            <input id="form-fullName" type="text" class="d-block w-100" required />
+
+        </div>
+        <div class="mb-3">
+            <strong>Messaggio:</strong>
+            <textarea rows="5" id="form-body" type="text" class="d-block w-100" required> </textarea>
+
+        </div>
+
+        <div class="text-end">
+            <input type="submit" class="btn btn-small btn-info" value="Salva" />
+        </div>
+    </form>
+    
+</div>
 
 <script type="text/javascript">
-
-let id = @Model;
+    let id = window.location.pathname.split('/')[3];
+//let id = @Model;
 getTravel();
 
 
@@ -81,5 +111,27 @@ function getTravel(){
             console.log(e)
         })
 }
-    
+
+    function sendMessage(e) {
+        e.preventDefault();
+        console.log(e)
+        axios.post("/api/message/send", {
+            title: document.querySelector("#form-title").value,
+            email: document.querySelector("#form-email").value,
+            sender: document.querySelector("#form-fullName").value,
+            body: document.querySelector("#form-body").value,
+            travelPackageId: id,
+        
+        }).then(res => {
+            console.log(res)
+            document.querySelector("#form-title").value = '';
+            document.querySelector("#form-email").value = '';
+            document.querySelector("#form-fullName").value = '';
+            document.querySelector("#form-body").value = '';
+            alert("messaggio inviato");
+        }).catch(err => {
+            console.log(err);
+            alert("campi non corretti, messaggio non inviato");
+        })
+    }
 </script>
