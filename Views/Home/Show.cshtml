@@ -1,5 +1,9 @@
 ﻿@model int;
 
+<div class="js_title">
+  
+</div>
+
 <div class="container js_travel_grid ">
     
 </div>
@@ -29,6 +33,11 @@ function getTravel(){
                                 </div>
                         `
             } else {
+                document.querySelector(".js_title").innerHTML = '';
+                document.querySelector(".js_title").innerHTML +=`
+                    <h2>${travel.destination.name}</h2>
+                
+                `
               
                     document.querySelector(".js_travel_grid").innerHTML = '';
                     document.querySelector(".js_travel_grid").innerHTML +=

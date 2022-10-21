@@ -50,22 +50,25 @@
                             </div>
                     `
             } else {
+                document.querySelector(".js_travel_grid").innerHTML = '';
                 res.data.forEach(travel => {
 
-                    document.querySelector(".js_travel_grid").innerHTML = '';
+                  
                     document.querySelector(".js_travel_grid").innerHTML +=
                         `
                                 <div class="col">
-                                    <div class="card ">
-                                    <a href="/home/show/${travel.id}">
+                                     <a href="/home/show/${travel.id}">
+                                    <div class="card index-card">
+                                   
                                         <img src="${travel.coverImage}" class="card-img-top" alt="Image of ${travel.name}">
                                         <div class="card-body">
                                                 <h2>${travel.name}</h2>
                                                 <span class="card-text d-block">${travel.description}</span>
                                                 <span class="card-text d-block">${travel.price} €</span>
                                          </div>
-                                        <a/>
+                                        
                                     </div>
+                                        </a>
                                 </div>
 
                         `;
