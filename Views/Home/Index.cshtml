@@ -3,9 +3,10 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Nomare Travel Agency</h1>
+
     <div class="w-50 m-auto mb-3">
+        <p>Cerca un pacchetto:</p>
         <input class="form-control js_search" type="text" placeholder="Cerca un viaggio" aria-label="default input example">
     </div>
     <div class="row row-cols-3 js_travel_grid">
@@ -55,13 +56,15 @@
                     document.querySelector(".js_travel_grid").innerHTML +=
                         `
                                 <div class="col">
-                                    <div class="card" ">
+                                    <div class="card ">
+                                    <a href="/home/show/${travel.id}">
                                         <img src="${travel.coverImage}" class="card-img-top" alt="Image of ${travel.name}">
                                         <div class="card-body">
                                                 <h2>${travel.name}</h2>
                                                 <span class="card-text d-block">${travel.description}</span>
                                                 <span class="card-text d-block">${travel.price} €</span>
                                          </div>
+                                        <a/>
                                     </div>
                                 </div>
 

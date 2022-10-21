@@ -1,0 +1,76 @@
+﻿@model int;
+
+<div class="container js_travel_grid ">
+    
+</div>
+
+<script type="text/javascript">
+
+let id = @Model;
+getTravel();
+
+
+
+function getTravel(){
+        axios.get("/api/travel/" + id).then(res=>{
+            console.log(res)
+          
+            let travel = res.data
+            let departureDay = new Date(travel.departureDate).toLocaleDateString();;
+            let returnDay = new Date(travel.returnDate).toLocaleDateString();;
+
+            // Render To DOM Travel grid
+
+            if (res.data.length == 0) {
+                document.querySelector(".js_travel_grid").innerHTML = '';
+                document.querySelector(".js_travel_grid").innerHTML += `
+                                <div class="col">
+                                   <p> Nessun pacchetto trovato <p>
+                                </div>
+                        `
+            } else {
+              
+                    document.querySelector(".js_travel_grid").innerHTML = '';
+                    document.querySelector(".js_travel_grid").innerHTML +=
+                        `
+                                    <div class="col">
+                                            <div class="card show-card ">
+                                        
+                                            <img src="${travel.coverImage}" class="card-img-top" alt="Image of ${travel.name}">
+                                            <div class="card-body ">
+                                                    <h2>${travel.name}</h2>
+                                                    <span class="card-text d-block"><strong>Categoria:</strong> ${travel.category.name}</span>
+                                                                <span class="card-text d-block"><strong>Date:</strong> Dal ${departureDay} al ${returnDay}</span>
+                                                        <span class="card-text d-block"><strong>Destinazione:</strong> ${travel.destination.name} (${travel.destination.country})</span>
+                                                        <span class="card-text d-block"><strong>Transporto:</strong> ${travel.transport.name}</span>
+                                                        <span class="card-text d-block"><strong>Prezzo:</strong> ${travel.price} €</span>
+                                                        <h3>Descrizione:</h3>
+                                                        <span class="card-text d-block">${travel.description}</span>
+                                                        <h3>Tags:</h3>
+                                                        <div class="js_tags"></div>
+                                             </div>
+                                          
+                                        </div>
+                                    </div>
+
+                            `;
+
+                            /////// ADD TAGS TO DOM
+
+                        document.querySelector(".js_tags").innerHTML = '';
+                        travel.tags.forEach(tag => {
+                        document.querySelector(".js_tags").innerHTML += `
+
+                                <span class="card-text ">${tag.name}</span>
+
+                            `
+                        })
+                        
+
+            }
+        }).catch(e=>{
+            console.log(e)
+        })
+}
+    
+</script>

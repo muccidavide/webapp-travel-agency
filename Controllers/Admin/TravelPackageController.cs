@@ -34,14 +34,6 @@ namespace webapp_travel_agency.Controllers.Admin
             travelSupportModel.Categories = _categories;
 
         }
-    
-        /*
-         
-         TODO: !!!!!!!!!!! INSTALL IDENTITY AND ADD AUTHENTICATION!!!!!!!!!!
-         
-         */
-
-
 
         public IActionResult Index()
         {

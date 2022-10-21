@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using webapp_travel_agency.Data;
 using webapp_travel_agency.Models;
@@ -41,6 +42,16 @@ namespace webapp_travel_agency.Controllers.Api
                 return Ok(travelsByDesc);
             }
             
+        }
+
+        [HttpGet("{id:int}")]
+        public IActionResult GetTravel(int id)
+        {
+            TravelPackage travel = _ctx.TravelPackages.Where(t => t.Id == id).Include(t => t.Transport).Include(t => t.Category).Include(t => t.Destination).Include(t => t.Tags).FirstOrDefault();
+            if (travel == null)
+                return NotFound();
+            
+            return Ok(travel);
         }
     }
 }

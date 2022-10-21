@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using webapp_travel_agency.Data;
 using Microsoft.AspNetCore.Identity;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +16,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 
 var app = builder.Build();

@@ -23,6 +23,14 @@ namespace webapp_travel_agency.Controllers
             return View();
         }
 
+        public IActionResult Show(int id)
+        {
+            if (id == 0)
+                return NotFound();
+
+            return View("Show", id);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
